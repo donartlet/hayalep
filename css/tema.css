@@ -1,0 +1,108 @@
+/* Tema: renkler, ölçüler, tipografi. Karanlık/aydınlık otomatik geçiş. */
+:root {
+  color-scheme: light dark;
+
+  --ana: #2F6F52;
+  --ana-koyu: #235A41;
+  --ana-acik: #E6F2EC;
+  --vurgu: #C2761A;
+  --vurgu-acik: #FBF0DF;
+
+  --zemin: #F5F6F4;
+  --yuzey: #FFFFFF;
+  --yuzey-2: #EFF1EE;
+  --cizgi: #DDE2DE;
+  --yazi: #16211C;
+  --yazi-soluk: #5C6B64;
+  --giris: #FFFFFF;
+
+  --basari: #1F7A4C;
+  --uyari: #B4740E;
+  --tehlike: #B3261E;
+
+  --r-s: 10px;
+  --r-m: 14px;
+  --r-l: 20px;
+  --r-tam: 999px;
+
+  --golge: 0 1px 2px rgba(16, 24, 20, .06), 0 6px 18px rgba(16, 24, 20, .06);
+  --golge-yuk: 0 8px 30px rgba(16, 24, 20, .18);
+
+  --kenar: 16px;
+  --ust-y: 52px;
+  --alt-y: 60px;
+  --dokunma: 46px;
+
+  --yazi-b: 15px;
+  --yazi-k: 13px;
+  --yazi-bs: 12px;
+  --yazi-bl: 17px;
+  --yazi-bb: 20px;
+  --yazi-bh: 24px;
+}
+
+html[data-tema="koyu"] {
+  --ana: #4E9C79;
+  --ana-koyu: #3A7A5D;
+  --ana-acik: #1B2E25;
+  --vurgu: #E0A04A;
+  --vurgu-acik: #2E2415;
+
+  --zemin: #10150F;
+  --yuzey: #1A211A;
+  --yuzey-2: #232B22;
+  --cizgi: #2E3830;
+  --yazi: #EDF1EC;
+  --yazi-soluk: #A3AEA7;
+  --giris: #151B15;
+
+  --basari: #5FB98C;
+  --uyari: #E0A04A;
+  --tehlike: #F2837A;
+
+  --golge: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 18px rgba(0, 0, 0, .35);
+  --golge-yuk: 0 10px 34px rgba(0, 0, 0, .55);
+}
+
+html[data-tema="acik"] { color-scheme: light; }
+html[data-tema="koyu"] { color-scheme: dark; }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--zemin);
+  color: var(--yazi);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: var(--yazi-b);
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;              /* yatay taşma olmasın */
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, p, ul, ol, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: var(--ana); }
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ana);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

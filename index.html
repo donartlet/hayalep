@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="acik">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hayal Atölyem</title>
+<meta name="description" content="Kişisel hayal ve hedef planlama: malzeme, maliyet, adım ve notlar tek yerde.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2F6F52" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12211A" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Hayal Atölyem">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="ikonlar/apple-touch-icon.png">
+<link rel="icon" href="ikonlar/icon-192.png">
+<link rel="stylesheet" href="css/tema.css">
+<link rel="stylesheet" href="css/temel.css">
+<link rel="stylesheet" href="css/ekranlar.css">
+</head>
+<body>
+  <div id="uygulama">
+    <header id="ust" class="ust"></header>
+    <main id="ana" class="ana" tabindex="-1"></main>
+    <nav id="alt" class="alt" aria-label="Ana menü"></nav>
+  </div>
+  <div id="katman" class="katman"></div>
+  <div id="bildirimKutu" class="bildirimler" aria-live="polite"></div>
+  <noscript><p style="padding:24px">Bu uygulama çalışmak için JavaScript gerektirir.</p></noscript>
+  <script type="module" src="js/ana.js"></script>
+</body>
+</html>

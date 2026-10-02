@@ -1,0 +1,200 @@
+{
+  "hayal_atolyesi": {
+    "surum": "1.0",
+    "tur": "arastirma_sonucu"
+  },
+  "meta": {
+    "model": "SpaceBunny (ÖRNEK VERİ — gerçek cevap değildir)",
+    "tarih": "2026-01-01",
+    "fiyat_arastirildi": false,
+    "para_birimi": "TRY",
+    "not": "BU DOSYA UYGULAMAYI DENEMEK İÇİN YAZILMIŞ BİR ÖRNEKTİR. Fiyatlar GERÇEK GÜNCEL FİYAT DEĞİLDİR; yalnızca akışı göstermek için konulmuştur ve SpaceBunny tarafından doğrulanmamıştır."
+  },
+  "ozet": {
+    "baslik": "Evdeki koltukları boyamak",
+    "aciklama": "Eski boya çok katlı olduğu için kazıma ihtiyacı dogabilir. Koltuk ahşap ayaklarindaki catlak onemli olabilir. Alerjim oldugu icin kokusuz urun tercih ediyorum."
+  },
+  "eksik_bilgiler": [
+    {
+      "soru": "Koltuklarin yasina gore (orn. 10 yildir evde mi) ve ahsap ayaklarda catlik var mi?",
+      "neden_onemli": "Catlakta kullanim yuzeyi degisiyor; dolgu gerekiyorsa maliyet ve sure belirgin sekilde artiyor.",
+      "ornek_yanit": "Orn. 12 yillik, bir ayaakta 10 cm catlik var."
+    },
+    {
+      "soru": "Boyanin rengi onceden secildi mi, yoksa koltugun orijinal rengi geri mi getirilecek?",
+      "neden_onemli": "Orijinal rengi korumak gerekiyorsa renk eşleştirme ve daha ince kat sayısı gerekiyor; iş süresi değişiyor.",
+      "ornek_yanit": "Kirik beyaz, mat."
+    },
+    {
+      "soru": "Boya ve vernik alerjisi var mi?",
+      "neden_onemli": "Kokusuz/alerjenik olmayan seri seçilmezse hem saglik sorunu hem de evde havalandirma zorunlulugu ortaya cikiyor.",
+      "ornek_yanit": "Evet, kokusuz şart."
+    }
+  ],
+  "malzemeler": [
+    {
+      "ad": "Silikonlu yağlı mat boya (1 L)",
+      "adet": 2,
+      "birim": "adet",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor olarak işaretlendi, uydurulmadı."
+    },
+    {
+      "ad": "Sentetik astar (1 L)",
+      "adet": 1,
+      "birim": "adet",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Kokusuz mat vernik (1 L)",
+      "adet": 1,
+      "birim": "adet",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Zımpara kâğıdı 80/120/220",
+      "adet": 3,
+      "birim": "adet",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Rulo ve fırça seti",
+      "adet": 1,
+      "birim": "set",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Boya bandı, naylon örtü, maske",
+      "adet": 1,
+      "birim": "set",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    }
+  ],
+  "adimlar": [
+    {
+      "sira": 1,
+      "baslik": "Koltuğu balkona çıkar ve zemini koru",
+      "aciklama": "Naylon örtü ser, koltuğu düz zemine al. Rüzgâr ve toz olmayan gün seç.",
+      "sure_dakika": 20
+    },
+    {
+      "sira": 2,
+      "baslik": "Sökülebilir parçaları ayır ve maskele",
+      "aciklama": "Kumaş kılıfları çıkar; ayaklar ve vida yerleri bantla kapat.",
+      "sure_dakika": 20
+    },
+    {
+      "sira": 3,
+      "baslik": "Eski boyayı kazı ve zımparala",
+      "aciklama": "80 grit ile kaba, 120 ile düz, 220 ile son. Çok katlı eski boyada güçlü boya sökücü gerekebilir.",
+      "sure_dakika": 90
+    },
+    {
+      "sira": 4,
+      "baslik": "Toz al ve astar sür",
+      "aciklama": "Nemli bezle sil, üretici önerisine göre 2–4 saat kuruma bekle.",
+      "sure_dakika": 30
+    },
+    {
+      "sira": 5,
+      "baslik": "Rengi iki kat sür",
+      "aciklama": "Önce ince kesik, sonra dolgun kat. Kenarlarda fırça, düz yüzeyde rulo.",
+      "sure_dakika": 90
+    },
+    {
+      "sira": 6,
+      "baslik": "Vernik at ve kurumasını bekle",
+      "aciklama": "İnce + kalın kat. 24 saat boyunca üstüne oturma. İlk hafta kılıf değiştir.",
+      "sure_dakika": 45
+    }
+  ],
+  "ogrenilecekler": [
+    {
+      "konu": "Yağlı boya öncesi yüzey hazırlığı",
+      "seviye": "baslangic",
+      "kaynak": "",
+      "gerekce": "Kazanım sonucunu doğrudan etkiliyor: zımparalama eksikse yeni boya daha çabuk soyulur."
+    },
+    {
+      "konu": "Vernik türleri (mat, parlak, ipeksi) ve astar-boya uyumu",
+      "seviye": "baslangic",
+      "kaynak": "",
+      "gerekce": "Yanlış ürün çifti sararma ve yapışma yapıyor; seçim bilgisi gerekiyor."
+    },
+    {
+      "konu": "Ahşap çatlak onarımı (macun + güçlendirme)",
+      "seviye": "orta",
+      "kaynak": "",
+      "gerekce": "Ayaklardaki çatlak varsa ek malzeme ve ek süre gerekiyor."
+    }
+  ],
+  "zorluklar": [
+    {
+      "sorun": "Çok katlı eski boyayı düzgün kazmak",
+      "seviye": "orta",
+      "cozum": "Önce mekanik zımpara dene; yetmezse zemine uygun boya sökücü kullan, gözlük ve maske kullanmayı unutma.",
+      "gerekce": "İşin en uzun ve en yorucu kısmı; zımpara tozu sağlığa zararlı."
+    },
+    {
+      "sorun": "Ahşap ayaklardaki çatlak",
+      "seviye": "orta",
+      "cozum": "Ahşap macun ile doldur, kurumasını bekle, sonra ayrıca zımparala ve boyadan önce mutlaka astar sür.",
+      "gerekce": "Boya, çatlağın içine sızar ve yıllar sonra yeniden görünür."
+    },
+    {
+      "sorun": "Boya kokusu ve havalandırma",
+      "seviye": "kolay",
+      "cozum": "Balkonda çalış, kesinlikle kokusuz seri seç, uygun maske kullan.",
+      "gerekce": "Alerji varsa bu madde önemli olabiliyor."
+    }
+  ],
+  "notlar": [
+    { "metin": "Boya ve vernik için gerçek fiyat araştırılırken marka ve hacim not edilmeli." },
+    { "metin": "Renk kartını mutlaka koltuğun üzerinde güneşte iki gün bekle." },
+    { "metin": "Örnek veri notudur: bu satırlar sadece akışı göstermek için yazıldı." }
+  ],
+  "sure": {
+    "deger": 2,
+    "birim": "gun"
+  },
+  "zorluk_puani": {
+    "puan": 3,
+    "gerekce": "Teknik zorluk orta düzey; asıl risk kazıma işçiliği ve ahşap onarımı."
+  },
+  "butce_oneri": 2500
+}

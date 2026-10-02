@@ -1,0 +1,23 @@
+{
+  "name": "Hayal AtÃ¶lyem â€” Hayal ve Hedef Planlama",
+  "short_name": "Hayal AtÃ¶lyem",
+  "description": "Hayallerini ve yapmak istediÄŸin iÅŸleri yaz; malzeme, maliyet, adÄ±m ve notlarÄ±nÄ± ayrÄ± bÃ¶lÃ¼mlerde tut.",
+  "lang": "tr",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#2F6F52",
+  "theme_color": "#2F6F52",
+  "categories": ["productivity", "lifestyle"],
+  "icons": [
+    { "src": "ikonlar/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "ikonlar/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "ikonlar/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Yeni Hayal", "short_name": "Yeni", "url": "./index.html#/hayal/yeni" }
+  ]
+}

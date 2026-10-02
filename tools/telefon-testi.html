@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- Yalnızca geliştirme testi: uygulamayı iPhone genişliğinde (390px) çerçeveler.
+     Uygulamanın parçası değildir; iPhone'a yüklenmez. -->
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Telefon görünümü testi</title>
+<style>
+  body { margin: 0; background: #222; display: flex; gap: 14px; padding: 14px; font-family: sans-serif; }
+  .telefon { width: 390px; height: 844px; border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 0 0 8px #000; }
+  iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .etiket { color: #fff; text-align: center; font-size: 13px; margin-top: 6px; }
+  button.tema { margin: 0 0 10px; padding: 8px 14px; border-radius: 8px; border: 1px solid #555; background: #2b2b2b; color: #fff; cursor: pointer; }
+</style>
+</head>
+<body>
+  <button class="tema" id="temaDugmesi">Temayı açık yap</button>
+  <div>
+    <div class="telefon"><iframe src="../index.html#/hayaller"></iframe></div>
+    <div class="etiket">Ana ekran</div>
+  </div>
+  <div>
+    <div class="telefon"><iframe src="../index.html#/hayal/demo-koltuk?sekme=ozet"></iframe></div>
+    <div class="etiket">Detay · Özet</div>
+  </div>
+  <div>
+    <div class="telefon"><iframe src="../index.html#/hayal/demo-koltuk/arastirma"></iframe></div>
+    <div class="etiket">Araştırma · komut</div>
+  </div>
+  <div>
+    <div class="telefon"><iframe src="../index.html#/hayal/yeni"></iframe></div>
+    <div class="etiket">Yeni hayal formu</div>
+  </div>
+  <div>
+    <div class="telefon"><iframe src="../index.html#/hayal/demo-pogaca?sekme=malzemeler"></iframe></div>
+    <div class="etiket">Maliyet</div>
+  </div>
+  <div>
+    <div class="telefon"><iframe src="../index.html#/sozluk"></iframe></div>
+    <div class="etiket">Sözlük</div>
+  </div>
+  <div>
+    <div class="telefon"><iframe src="../index.html#/ayarlar"></iframe></div>
+    <div class="etiket">Ayarlar</div>
+  </div>
+</body>
+<script>
+  let acik = true;
+  function uygula() {
+    document.querySelectorAll('iframe').forEach((f) => {
+      try { f.contentDocument.documentElement.dataset.tema = acik ? 'acik' : 'koyu'; } catch { /* yoksay */ }
+    });
+    document.getElementById('temaDugmesi').textContent = acik ? 'Temayı koyu yap' : 'Temayı açık yap';
+  }
+  document.getElementById('temaDugmesi').addEventListener('click', () => { acik = !acik; uygula(); });
+  document.querySelectorAll('iframe').forEach((f) => f.addEventListener('load', () => { if (acik) uygula(); }));
+</script>
+</html>

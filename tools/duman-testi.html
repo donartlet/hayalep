@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- Geliştirme duman testi: her ekranı açar, panelleri açar/kapatır, hata olursa raporlar.
+     Kullanım: tarayıcıda http://localhost:5173/tools/duman-testi.html adresini aç. -->
+<html lang="tr">
+<head><meta charset="utf-8"><title>Duman testi</title>
+<style>body{font-family:monospace;padding:16px;background:#111;color:#ddd} .hata{color:#ff6b6b} .ok{color:#69db7c} pre{white-space:pre-wrap}</style>
+</head>
+<body>
+<pre id="cikti">Test başlıyor…</pre>
+<script type="module">
+/* Bu sayfa test aracıdır; uygulamanın parçası değildir. */
+const cikti = document.getElementById('cikti');
+const satirlar = [];
+function yaz(s) { satirlar.push(s); cikti.textContent = satirlar.join('\n'); }
+const hatalar = [];
+window.addEventListener('error', (e) => { hatalar.push('PENCERE HATASI: ' + e.message); });
+window.addEventListener('unhandledrejection', (e) => { hatalar.push('REDDEDİLEN SÖZ: ' + e.reason); });
+const eskiHata = console.error;
+console.error = (...a) => { hatalar.push('console.error: ' + a.map(String).join(' ')); eskiHata(...a); };
+
+const bekle = (ms) => new Promise((c) => setTimeout(c, ms));
+const cerceve = document.createElement('iframe');
+cerceve.style.cssText = 'width:390px;height:760px;border:0;position:fixed;left:-9999px';
+cerceve.src = '../index.html#/hayaller';
+document.body.appendChild(cerceve);
+cerceve.addEventListener('load', () => { cerceve.contentWindow.addEventListener('error', (e) => hatalar.push('UYGULAMA HATASI: ' + e.message)); });
+await bekle(1200);
+const w = cerceve.contentWindow;
+const d = cerceve.contentDocument;
+
+const git = async (hash) => { w.location.hash = hash; await bekle(500); };
+const tikla = (secici, metin) => {
+  const dugs = [...d.querySelectorAll(secici)].filter((x) => !metin || x.textContent.includes(metin));
+  if (!dugs.length) throw new Error(`Bulunamadı: ${secici} "${metin || ''}"`);
+  dugs[0].click();
+};
+const kontrol = (ad, beklenenHash) => {
+  const hata = d.getElementById('ana').textContent.includes('Bir sorun oluştu');
+  const yonlendirme = beklenenHash ? !w.location.hash.includes(beklenenHash) : false;
+  yaz(`${hata || yonlendirme ? '✗' : '✓'} ${ad}${hata ? '  -> EKRAN HATASI' : ''}${yonlendirme ? `  -> YÖNLENDİRİLDİ (${w.location.hash})` : ''}`);
+  if (hata) hatalar.push(`Ekranda hata: ${ad}`);
+  if (yonlendirme) hatalar.push(`Yanlış ekran: ${ad}`);
+};
+
+const adimlar = [
+  ['Ana ekran', '#/hayaller', null],
+  ['Yeni hayal formu', '#/hayal/yeni', null],
+  ['Detay / Özet', '#/hayal/demo-koltuk?sekme=ozet', null],
+  ['Detay / Malzeme', '#/hayal/demo-koltuk?sekme=malzemeler', null],
+  ['Detay / Adımlar', '#/hayal/demo-koltuk?sekme=adimlar', null],
+  ['Detay / Öğrenilecekler', '#/hayal/demo-koltuk?sekme=ogrenilecekler', null],
+  ['Detay / Zorluklar', '#/hayal/demo-koltuk?sekme=zorluklar', null],
+  ['Detay / Notlar', '#/hayal/demo-koltuk?sekme=notlar', null],
+  ['Araştırma / komut', '#/hayal/demo-koltuk/arastirma', null],
+  ['Sözlük', '#/sozluk', null],
+  ['Ayarlar', '#/ayarlar', null],
+];
+
+for (const [ad, hash] of adimlar) {
+  await git(hash);
+  kontrol(ad, hash.split('?')[0]);
+  const yatayTasma = d.documentElement.scrollWidth > d.documentElement.clientWidth + 1;
+  if (yatayTasma) { hatalar.push(`Yatay taşma: ${ad} (${d.documentElement.scrollWidth} > ${d.documentElement.clientWidth})`); yaz(`  ! yatay taşma`); }
+}
+
+/* Panel aç/kapat akışları */
+yaz('\n— Paneller —');
+const panelTestleri = [
+  ['Malzeme ekleme paneli', '#/hayal/demo-koltuk?sekme=malzemeler', '.dugme--ana', 'Malzeme ekle'],
+  ['Adım ekleme paneli', '#/hayal/demo-koltuk?sekme=adimlar', '.dugme--ana', 'Yapım adımı ekle'],
+  ['Öğrenilecek paneli', '#/hayal/demo-koltuk?sekme=ogrenilecekler', '.dugme--ana', 'Öğrenilecek konu ekle'],
+  ['Zorluk paneli', '#/hayal/demo-koltuk?sekme=zorluklar', '.dugme--ana', 'Zorluk ekle'],
+  ['Not paneli', '#/hayal/demo-koltuk?sekme=notlar', '.dugme--ana', 'Not ekle'],
+  ['Sözlük paneli', '#/sozluk', '.dugme--ana', 'Sözlük kaydı ekle'],
+];
+for (const [ad, hash, secici, metin] of panelTestleri) {
+  await git(hash);
+  try {
+    tikla(secici, metin);
+    await bekle(350);
+    const baslik = d.querySelector('.panel__baslik')?.textContent;
+    if (!baslik) throw new Error('panel açılmadı');
+    yaz(`✓ ${ad} → "${baslik}"`);
+    tikla('.panel__alt .dugme', 'Vazgeç');
+    await bekle(250);
+  } catch (h) { yaz(`✗ ${ad}: ${h.message}`); hatalar.push(`${ad}: ${h.message}`); }
+}
+
+/* Ayarlardaki paneller */
+yaz('\n— Ayarlar panelleri —');
+await git('#/ayarlar');
+for (const [ad, satirMetni] of [['Ağırlık paneli', 'Sıralama ağırlıkları'], ['Çöp kutusu', 'Çöp kutusu'], ['Geri yükleme', 'Yedekten geri yükle']]) {
+  try {
+    const satir = [...d.querySelectorAll('.ayar-satir')].find((s) => s.textContent.includes(satirMetni));
+    if (!satir) throw new Error('satır bulunamadı: ' + satirMetni);
+    const dugme = satir.querySelector('.dugme');
+    if (!dugme) throw new Error('düğme yok: ' + satirMetni);
+    dugme.click();
+    await bekle(300);
+    const baslik = d.querySelector('.panel__baslik')?.textContent;
+    if (!baslik) throw new Error('panel açılmadı');
+    yaz(`✓ ${ad} → "${baslik}"`);
+    d.querySelector('.eylem-dugme')?.click();
+    await bekle(250);
+  } catch (h) { yaz(`✗ ${ad}: ${h.message}`); hatalar.push(`${ad}: ${h.message}`); }
+}
+
+/* Araştırma akışı: örnek veri yükle + önizle */
+yaz('\n— Araştırma akışı —');
+await git('#/hayal/demo-atolye/arastirma');
+try {
+  const komut = d.querySelector('textarea')?.value || '';
+  if (!komut.includes('hayal_atolyesi')) throw new Error('komut şemayı içermiyor');
+  if (!komut.includes('DENEYİMİM')) throw new Error('komut deneyim bölümünü içermiyor');
+  yaz(`✓ Komut üretildi (${komut.length} karakter)`);
+  [...d.querySelectorAll('.sekme')].find((s) => s.textContent.includes('Sonucu içe aktar')).click();
+  await bekle(300);
+  [...d.querySelectorAll('.dugme')].find((s) => s.textContent.includes('Koltuk boyama')).click();
+  await bekle(600);
+  const onay = [...d.querySelectorAll('.dugme')].find((s) => s.textContent.includes('Onaylıyorum'));
+  if (!onay) throw new Error('önizleme gelmedi: ' + d.getElementById('ana').textContent.slice(0, 120));
+  const ozet = [...d.querySelectorAll('.ozet-kutu__deger')].map((x) => x.textContent).join(' / ');
+  yaz(`✓ Önizleme geldi (${ozet})`);
+  onay.click();
+  await bekle(600);
+  const baslik = d.querySelector('.kart__baslik')?.textContent;
+  if (!baslik) throw new Error('aktarım sonrası detay açılmadı');
+  yaz(`✓ Aktarım sonrası: ${baslik}`);
+} catch (h) { yaz(`✗ Araştırma akışı: ${h.message}`); hatalar.push(`Araştırma akışı: ${h.message}`); }
+
+/* Bozuk JSON hata yolu */
+yaz('\n— Hata yolu —');
+await git('#/hayal/demo-atolye/arastirma');
+try {
+  [...d.querySelectorAll('.sekme')].find((s) => s.textContent.includes('Sonucu içe aktar')).click();
+  await bekle(300);
+  const ta = d.querySelector('textarea');
+  ta.value = 'Bu bir sohbet cevabı, JSON içermiyor.';
+  ta.dispatchEvent(new w.Event('input', { bubbles: true }));
+  [...d.querySelectorAll('.dugme')].find((s) => s.textContent.includes('Önizle')).click();
+  await bekle(400);
+  const hataMetni = d.getElementById('ana').textContent.includes('İçe aktarılamadı');
+  const onayVar = !![...d.querySelectorAll('.dugme')].find((s) => s.textContent.includes('Onaylıyorum'));
+  if (!hataMetni) throw new Error('hata mesajı görünmedi');
+  if (onayVar) throw new Error('hatalı veride onay düğmesi görünmemeli');
+  yaz('✓ Hatalı JSON anlaşılır mesajla reddedildi, onay düğmesi gizlendi');
+} catch (h) { yaz(`✗ Hata yolu: ${h.message}`); hatalar.push(`Hata yolu: ${h.message}`); }
+
+yaz('\n' + (hatalar.length ? `SONUÇ: ${hatalar.length} sorun` : 'SONUÇ: Sorun yok ✓'));
+yaz(hatalar.join('\n'));
+cerceve.remove();
+</script>
+</body>
+</html>

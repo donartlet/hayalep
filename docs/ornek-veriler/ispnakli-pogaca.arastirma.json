@@ -1,0 +1,187 @@
+{
+  "hayal_atolyesi": {
+    "surum": "1.0",
+    "tur": "arastirma_sonucu"
+  },
+  "meta": {
+    "model": "SpaceBunny (ÖRNEK VERİ — gerçek cevap değildir)",
+    "tarih": "2026-01-01",
+    "fiyat_arastirildi": false,
+    "para_birimi": "TRY",
+    "not": "BU DOSYA UYGULAMAYI DENEMEK İÇİN YAZILMIŞ BİR ÖRNEKTİR. Fiyatlar GERÇEK GÜNCEL FİYAT DEĞİLDİR; SpaceBunny tarafından doğrulanmamıştır ve hiçbir yerçekimi kaynağına dayanmaz."
+  },
+  "ozet": {
+    "baslik": "Ispanaklı poğaça yapmak",
+    "aciklama": "Hamurun bir gece önceden buzdolabında dinlenmesi gerekiyor. İspanaktan suyu iyi sıkmak hamurun yapışmaması için şart."
+  },
+  "eksik_bilgiler": [
+    {
+      "soru": "Kaç kişilik poğaça yapılacak? (Tek tepsi mi, iki tepsi mi?)",
+      "neden_onemli": "Hamur miktarı ve fırın tepsi sayısı değişiyor; maliyet ve süre ölçekleniyor.",
+      "ornek_yanit": "Orn. 4 kişilik, 8 poğaça."
+    },
+    {
+      "soru": "Hamur elde mi yoksa hamur makinesinde mi yoğrulacak?",
+      "neden_onemli": "Hamur makinesi yoksa hamur tutma süresi ikiye katlanıyor ve iş gücü artıyor.",
+      "ornek_yanit": "Orn. Elde yoğuracağım."
+    },
+    {
+      "soru": "Fırın (standart ev fırını) ve fırın tepsisi var mı?",
+      "neden_onemli": "Fırın ısısı ve tepsi sayısı pişirme süresi ile hamur miktarını doğrudan etkiliyor.",
+      "ornek_yanit": "Orn. 2 tepsi, fırın 200 dereceye çıkıyor."
+    }
+  ],
+  "malzemeler": [
+    {
+      "ad": "Un (tam buğday veya un)",
+      "adet": 2,
+      "birim": "kg",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor, uydurulmadı."
+    },
+    {
+      "ad": "Ispanak",
+      "adet": 1,
+      "birim": "kg",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Beyaz peynir (kırklar ya da kaşar)",
+      "adet": 0.5,
+      "birim": "kg",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Yumurta",
+      "adet": 5,
+      "birim": "adet",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Süt",
+      "adet": 500,
+      "birim": "ml",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: fiyat bilinmiyor."
+    },
+    {
+      "ad": "Maydanoz, dereotu, kabak çekirdeği, karabiber, pul biber",
+      "adet": 1,
+      "birim": "set",
+      "birim_fiyat": null,
+      "tutar": null,
+      "para_birimi": "TRY",
+      "fiyat_durumu": "bilinmiyor",
+      "kaynak": "",
+      "kontrol_tarihi": "",
+      "not": "Örnek veri: baharat setinin fiyatı bilinmiyor."
+    }
+  ],
+  "adimlar": [
+    {
+      "sira": 1,
+      "baslik": "Hamuru yoğur, streçle ört, buzdolabında dinlendir",
+      "aciklama": "En az 30 dakika, ideal 1 gece. Dinlenmemiş hamur açılmaz.",
+      "sure_dakika": 20
+    },
+    {
+      "sira": 2,
+      "baslik": "Ispanakları yıkayıp suyunu çok iyi sık",
+      "aciklama": "Bu adım atlanırsa hamur yapışır. Ispanak çok ıslak olmamalı.",
+      "sure_dakika": 15
+    },
+    {
+      "sira": 3,
+      "baslik": "Harç karıştır",
+      "aciklama": "Peyniri ufala, yumurta, yeşillik ve baharatları ekle. Tuz az olsun (peynir tuzlu).",
+      "sure_dakika": 10
+    },
+    {
+      "sira": 4,
+      "baslik": "Hamuru eşit parçalara böl ve ince aç",
+      "aciklama": "Ortayı ince, kenarları kalın bırak.",
+      "sure_dakika": 15
+    },
+    {
+      "sira": 5,
+      "baslik": "Harç koy, kenarları topla, yüzeyi yağla",
+      "aciklama": "Kenarları parmakla sıkı topla ki açılmasın. Üstüne yumurta ya da su gezdir.",
+      "sure_dakika": 20
+    },
+    {
+      "sira": 6,
+      "baslik": "Fırında pişir",
+      "aciklama": "Önceden ısıtılmış fırında üstü kızarana kadar yaklaşık 20–25 dakika.",
+      "sure_dakika": 25
+    }
+  ],
+  "ogrenilecekler": [
+    {
+      "konu": "Hamur açma ve dinlendirme teknikleri",
+      "seviye": "baslangic",
+      "kaynak": "",
+      "gerekce": "Dinlenmemiş hamur açılmıyor; temel bilgi."
+    },
+    {
+      "konu": "Ispanakta suyu çıkarma yöntemleri",
+      "seviye": "baslangic",
+      "kaynak": "",
+      "gerekce": "Hamurun yapışmamasının anahtarı."
+    }
+  ],
+  "zorluklar": [
+    {
+      "sorun": "Poğaçalar pişerken açılıyor",
+      "seviye": "orta",
+      "cozum": "Kenarları daha sıkı topla, ortaya daha az harç koy, hamuru çok ince açma.",
+      "gerekce": "En sık karşılaşılan hata; hamur açıklığıyla ilişkili."
+    },
+    {
+      "sorun": "Hamur tutmuyor / eline yapışıyor",
+      "seviye": "kolay",
+      "cozum": "Un miktarını 1–2 yemek kaşığı artır, tezgâha un serpiştir.",
+      "gerekce": "Hamur yumuşaksa nem oranı sorunu; hamur sertse un oranı sorunu."
+    }
+  ],
+  "notlar": [
+    { "metin": "Sütün yarısı sıcak süt, yarısı soğuk süt olarak kullanılabilir." },
+    { "metin": "Örnek veri notudur: bu satırlar sadece akışı göstermek için yazıldı." }
+  ],
+  "sure": {
+    "deger": 3,
+    "birim": "saat"
+  },
+  "zorluk_puani": {
+    "puan": 2,
+    "gerekce": "Yeni öğrenilen rutin bir iş; zor kısım hamur açma ve hamurun tutması."
+  },
+  "butce_oneri": 200
+}
